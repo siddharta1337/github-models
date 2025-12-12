@@ -2,10 +2,14 @@ name: AI Responder
 on:
   issues:
     types: [opened]
+  workflow_dispatch:
+  
 permissions:
   contents: read
   issues: write    # Para comentar
   models: read     # <--- CRÍTICO
+
+
 
 jobs:
   triage:
