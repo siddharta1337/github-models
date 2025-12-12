@@ -25,5 +25,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-          echo "$ISSUE_BODY" | gh models run --file prompts/mi-prompt.yml > respuesta.txt
+          echo "$ISSUE_BODY" | gh models run --file prompts/mi-prompt.prompt.yml > respuesta.txt
           gh issue comment ${{ github.event.issue.number }} --body-file respuesta.txt
