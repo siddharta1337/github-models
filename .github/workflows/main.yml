@@ -1,0 +1,25 @@
+name: AI Responder
+on:
+  issues:
+    types: [opened]
+permissions:
+  contents: read
+  issues: write    # Para comentar
+  models: read     # <--- CRÍTICO
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Models CLI
+        run: gh extension install github/gh-models
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Model
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          echo "$ISSUE_BODY" | gh models run --file prompts/mi-prompt.yml > respuesta.txt
+          gh issue comment ${{ github.event.issue.number }} --body-file respuesta.txt
