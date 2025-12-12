@@ -12,4 +12,4 @@ messages:
       de forma concisa y sencilla, agregando al final un pequeño chiste en rima
   - role: user
     content: ¿Qué es la nube?
-responseFormat: json_object
+responseFormat: text
