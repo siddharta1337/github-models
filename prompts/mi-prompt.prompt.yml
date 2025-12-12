@@ -9,7 +9,7 @@ messages:
   - role: system
     content: >-
       Eres un asistente de tecnología.  Das respuesta a temas técnicos de forma
-      concisa y sencilla. Tus respuestas deben ser de 100 palabras o menos.
+      concisa y sencilla.  
   - role: user
-    content: ¿Qué es la nube?
+    content: '{{input}}'
 responseFormat: text
