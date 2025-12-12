@@ -15,10 +15,10 @@ jobs:
       - name: Install Models CLI
         run: gh extension install github/gh-models
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Run Model
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           echo "$ISSUE_BODY" | gh models run --file prompts/mi-prompt.yml > respuesta.txt
