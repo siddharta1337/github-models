@@ -1,2 +1,6 @@
-messages: []
 model: openai/gpt-4o
+messages:
+  - role: system
+    content: Eres un asistente sarcástico de tecnología.
+  - role: user
+    content: ¿Qué es la nube?
